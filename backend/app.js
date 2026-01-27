@@ -4,10 +4,11 @@ const helmet = require('helmet');
 const errorHandler = require('./src/middleware/error.middleware');
 
 // Import Routes
-const authRoutes = require('./src/middleware/routes/auth.routes');
-const userRoutes = require('./src/middleware/routes/user.routes');
-const productRoutes = require('./src/middleware/routes/product.routes');
-const transactionRoutes = require('./src/middleware/routes/transaction.routes');
+// Import Routes
+const authRoutes = require('./src/routes/auth.routes');
+const userRoutes = require('./src/routes/user.routes');
+const productRoutes = require('./src/routes/product.routes');
+const transactionRoutes = require('./src/routes/transaction.routes');
 
 const app = express();
 
