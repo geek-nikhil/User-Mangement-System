@@ -32,7 +32,7 @@ const register = async (req, res) => {
 
         // 5. Generate Token
         // Exclude password from token payload
-        const userForToken = { id: newUser.id, email: newUser.email, role: newUser.role };
+        const userForToken = { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role };
         const token = generateToken(userForToken);
 
         // 6. Response
@@ -66,7 +66,7 @@ const login = async (req, res) => {
         }
 
         // 4. Generate Token
-        const userForToken = { id: user.id, email: user.email, role: user.role };
+        const userForToken = { id: user.id, name: user.name, email: user.email, role: user.role };
         const token = generateToken(userForToken);
 
         // 5. Response
