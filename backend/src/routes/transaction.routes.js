@@ -5,8 +5,10 @@ const transactionController = require('../controllers/transaction.controller');
 const authenticateToken = require('../middleware/auth.middleware');
 const authorizeRole = require('../middleware/role.middleware');
 
-// GET /api/transactions
-// Assuming this is an admin dashboard feature
-router.get('/', authenticateToken, authorizeRole(['admin']), transactionController.getAnalytics);
+// GET /api/transactions/analytics (Admin only)
+router.get('/analytics', authenticateToken, authorizeRole(['admin']), transactionController.getAnalytics);
+
+// GET /api/transactions (Paginated List - Admin only)
+router.get('/', authenticateToken, authorizeRole(['admin']), transactionController.getTransactions);
 
 module.exports = router;
