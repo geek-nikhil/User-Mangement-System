@@ -8,7 +8,7 @@ const EXPIRES_IN = '1d'; // Token validity
 const generateToken = (user) => {
     // Payload includes user ID and role for quick access in permission checks
     return jwt.sign(
-        { id: user.id, email: user.email },
+        { id: user.id, email: user.email, role: user.role },
         SECRET_KEY,
         { expiresIn: EXPIRES_IN }
     );
