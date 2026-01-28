@@ -8,7 +8,10 @@ const authorizeRole = require('../middleware/role.middleware');
 // GET /api/transactions/analytics (Admin only)
 router.get('/analytics', authenticateToken, authorizeRole(['admin']), transactionController.getAnalytics);
 
-// GET /api/transactions (Paginated List - Admin only)
-router.get('/', authenticateToken, authorizeRole(['admin']), transactionController.getTransactions);
+// GET /api/transactions (Paginated List - Everyone can access, filtered in controller)
+router.get('/', authenticateToken, transactionController.getTransactions);
+
+// POST /api/transactions/buy (Authenticated users)
+router.post('/buy', authenticateToken, transactionController.buyProduct);
 
 module.exports = router;
